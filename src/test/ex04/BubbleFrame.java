@@ -76,23 +76,23 @@ public class BubbleFrame extends JFrame {
             @Override
             public void keyReleased(KeyEvent e) {
                 // 방향키 오른쪽을 뗐을때
-                if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                    player.setRight(false);
+                if(e.getKeyCode() == KeyEvent.VK_RIGHT) {     // 키 뗐을때
+                    player.setRight(false);             // while문이 false가 되어 반복이 멈춘다.
                 }
                 
                 // 방향키 왼쪽을 뗐을때
-                else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-                    player.setLeft(false);
+                else if(e.getKeyCode() == KeyEvent.VK_LEFT) { // 키 뗐을때
+                    player.setLeft(false);               // while문이 false가 되어 반복이 멈춘다.
                 }
 
                 // 방향키 위쪽을 뗐을때
-                else if(e.getKeyCode() == KeyEvent.VK_UP) {
-                    player.setUp(false);
+                else if(e.getKeyCode() == KeyEvent.VK_UP) {   // 키 뗐을때
+                    player.setUp(false);                   // while문이 false가 되어 반복이 멈춘다.
                 }
 
                 // 방향키 아래쪽을 뗐을때
-                else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-                    player.setDown(false);
+                else if(e.getKeyCode() == KeyEvent.VK_DOWN) { // 키 뗐을때
+                    player.setDown(false);               // while문이 false가 되어 반복이 멈춘다.
                 }
             }
         });

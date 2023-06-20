@@ -9,14 +9,12 @@ public class Player extends JLabel {
     private int x;
 	private int y;
 
-    // 플레이어의 방향 상태
+    // 플레이어의 방향 상태(쓰레드에 활용)
     private boolean left;
     private boolean right;
     private boolean up;
     private boolean down;
     
-
-	
 	private ImageIcon playerR, playerL;
 
     public Player() {
@@ -24,11 +22,13 @@ public class Player extends JLabel {
         initSetting();
     }
 
+    // new가 붙는 객체들을 집어 넣어 초기화
     public void initObject() {
         playerR = new ImageIcon("image/playerR.png");
         playerL = new ImageIcon("image/playerL.png");
     }
 
+    // new가 안붙는 값들을 집어 넣어 초기화
     private void initSetting() {
         x = 70;
         y = 535;
@@ -43,6 +43,7 @@ public class Player extends JLabel {
         setLocation(x, y);
     }
 
+    // 오른쪽 이동 메소드
     public void right() {
         System.out.println("Right 실행");
         right = true;
@@ -62,6 +63,7 @@ public class Player extends JLabel {
         }).start();
     }
 
+    // 왼쪽 이동 메소드
     public void left() {
         System.out.println("Left 실행");
         left = true;
@@ -82,6 +84,7 @@ public class Player extends JLabel {
     }
 
     // 절대값 0,0이 왼쪽 상단임 올라가는 느낌을 주려면 y좌표 감소!!
+    // 위로 이동 메소드
     public void up() {
         System.out.println("Up 실행");
         up = true;
@@ -101,6 +104,7 @@ public class Player extends JLabel {
     }
 
     // 내려가는 느낌은 y좌표 증가
+    // 아래 이동 메소드
     public void down() {
         System.out.println("Down 실행");
         down = true;
