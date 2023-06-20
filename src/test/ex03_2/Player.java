@@ -1,6 +1,6 @@
 package test.ex03_2;
 
-import javax.swing.Icon;
+// import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -36,8 +36,6 @@ public class Player extends JLabel {
         x = x + 2;
         setLocation(x, y);
         }
-        
-
     }
 
     public void left() {

@@ -1,6 +1,6 @@
 package test.ex02;
 
-import javax.swing.Icon;
+// import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -9,7 +9,8 @@ public class Player extends JLabel {
     private int x;
 	private int y;
 	
-	private ImageIcon playerR, playerL;
+	private ImageIcon playerR;
+    // private ImageIcon playerL;
 
     public Player() {
         initObject();
@@ -18,7 +19,7 @@ public class Player extends JLabel {
 
     public void initObject() {
         playerR = new ImageIcon("image/playerR.png");
-        playerL = new ImageIcon("image/playerL.png");
+        // playerL = new ImageIcon("image/playerL.png");
     }
 
     private void initSetting() {
