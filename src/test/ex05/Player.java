@@ -17,7 +17,9 @@ public class Player extends JLabel {
 
     // 플레이어 속도
     private final int SPEED = 5;        // x축
-    private final int JUMPSPEED = 4;    // y축
+    private final int JUMPSPEED = 10;    // y축
+    
+    private final int HEIGHT = 50;
     
 	private ImageIcon playerR, playerL;
 
@@ -92,15 +94,15 @@ public class Player extends JLabel {
     public void up() {
         System.out.println("Up 실행");
         up = true;
-
         // 좌,우 이동과는 다르게 점프는 잠시 올라갔다 내려와야함.(for문)
         new Thread(() -> {
-            for(int i=0; i < 30; i++) {
+           
+            for(int i=0; i < HEIGHT; i++) {
                 y = y - JUMPSPEED;
                 setLocation(x, y);
                 
                 try {
-                    Thread.sleep(3); // 0.01초 딜레이
+                    Thread.sleep(10); // 0.1초 딜레이
                 } 
                 catch (InterruptedException e) {
                     e.printStackTrace();
@@ -110,6 +112,7 @@ public class Player extends JLabel {
 
             // 점프하고 나서 다시 아래로 떨어지는 것 구현
             down();
+        
         }).start();
     }
 
@@ -120,7 +123,7 @@ public class Player extends JLabel {
         down = true;
 
         new Thread(() -> {
-            for(int i=0; i<30; i++) {
+            for(int i=0; i<HEIGHT; i++) {
                 y = y + JUMPSPEED;
                 setLocation(x, y);
 
