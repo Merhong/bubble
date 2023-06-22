@@ -1,4 +1,4 @@
-package test.ex04;
+package test.ex05;
 
 // import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -14,6 +14,10 @@ public class Player extends JLabel {
     private boolean right;
     private boolean up;
     private boolean down;
+
+    // 플레이어 속도
+    private final int SPEED = 5;        // x축
+    private final int JUMPSPEED = 4;    // y축
     
 	private ImageIcon playerR, playerL;
 
@@ -51,7 +55,7 @@ public class Player extends JLabel {
         new Thread(() -> {
             while(right) {
                 setIcon(playerR);
-                x = x + 4;
+                x = x + SPEED;
                 setLocation(x, y);
 
                 try {
@@ -71,7 +75,7 @@ public class Player extends JLabel {
         new Thread(() -> {
             while(left) {
                 setIcon(playerL);
-                x = x - 4;
+                x = x - SPEED;
                 setLocation(x, y);
 
                 try {
@@ -89,42 +93,44 @@ public class Player extends JLabel {
         System.out.println("Up 실행");
         up = true;
 
+        // 좌,우 이동과는 다르게 점프는 잠시 올라갔다 내려와야함.(for문)
         new Thread(() -> {
-            while(up) {
-                y = y - 4;
+            for(int i=0; i < 30; i++) {
+                y = y - JUMPSPEED;
                 setLocation(x, y);
-
                 
                 try {
-                    Thread.sleep(10); // 0.01초 딜레이
+                    Thread.sleep(3); // 0.01초 딜레이
                 } 
                 catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
+            up = false;
+
+            // 점프하고 나서 다시 아래로 떨어지는 것 구현
+            down();
         }).start();
     }
 
     // 내려가는 느낌은 y좌표 증가
-    // 아래 이동 메소드
+    // 아래 이동 메소드, down()
     public void down() {
         System.out.println("Down 실행");
         down = true;
 
         new Thread(() -> {
-            while(down) {
-                y = y + 4;
+            for(int i=0; i<30; i++) {
+                y = y + JUMPSPEED;
                 setLocation(x, y);
 
                 try {
-                    Thread.sleep(10); // 0.01초 딜레이
+                    Thread.sleep(1); // 0.1초 딜레이
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-
-                if(Thread.interrupted())
-                break;  
             }
+            down = false;
         }).start();
     }
 
