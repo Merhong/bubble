@@ -27,20 +27,28 @@ public class BackgroundPlayerService implements Runnable {
         // 실의 길이
         while (true) {
          // 색상 확인
-         Color leftColor = new Color(image.getRGB(player.getX() - 10, player.getY() + 25));
-         Color rightColor = new Color(image.getRGB(player.getX() + 50 + 15, player.getY() + 25));
-         System.out.println("leftColor : "+leftColor);
-         System.out.println("rightColor : "+rightColor);
+         Color leftColor = new Color(image.getRGB(player.getX() - 5, player.getY() + 25));
+         Color rightColor = new Color(image.getRGB(player.getX() + 65, player.getY() + 25));
+        //  System.out.println("leftColor : "+leftColor);
+        //  System.out.println("rightColor : "+rightColor);
 
          if (leftColor.getRed() == 255 && leftColor.getGreen() == 0 && leftColor.getBlue() == 0) {
             System.out.println("왼쪽 벽에 충돌함");
-         } else if (rightColor.getRed() == 255 && rightColor.getGreen() == 0 && rightColor.getBlue() == 0) {
+            player.setLeftwallCrash(true);
+            player.setLeft(false);
+         }
+         else if (rightColor.getRed() == 255 && rightColor.getGreen() == 0 && rightColor.getBlue() == 0) {
             System.out.println("오른쪽 벽에 충돌함");
+            player.setRightwallCrash(true);
+            player.setRight(false);
+         }
+         else { // 벽에 충돌하지 않을때, 상태를 false로 초기화
+                player.setLeftwallCrash(false);
+                player.setRightwallCrash(false);
          }
 
          try {
-            // System.out.println("나 이제 쉴꼐");
-            Thread.sleep(1000);
+            Thread.sleep(10);
          } catch (InterruptedException e) {
             e.printStackTrace();
          }

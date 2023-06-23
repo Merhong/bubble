@@ -77,6 +77,11 @@ public class Player extends JLabel {
                 x = x + SPEED;      // Speed 만큼 X좌표 증가
                 setLocation(x, y);  // 변경된 좌표 화면에 다시 찍어줌
 
+                // // if 캐릭터가 오른쪽벽에 부딪히면 멈춘다.
+                // if(this.isRightwallCrash()) {
+                //     right = false;
+                // }
+
                 try {               // 예외처리구문
                     Thread.sleep(10);   // 딜레이 시켜줌
                 } catch (InterruptedException e) {
@@ -97,6 +102,11 @@ public class Player extends JLabel {
                 setIcon(playerL);   // 아이콘이 왼쪽 모습 보이게 설정
                 x = x - SPEED;      // Speed 만큼 X좌표 감소
                 setLocation(x, y);  // 변경된 좌표 화면에 다시 찍어줌
+
+                // // if 캐릭터가 왼쪽벽에 부딪히면 멈춘다.
+                // if(this.isLeftwallCrash()) {
+                //     left = false;
+                // }
 
                 try {               // 예외처리구문
                     Thread.sleep(10);   // 딜레이 시켜줌

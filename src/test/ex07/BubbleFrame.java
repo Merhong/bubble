@@ -27,8 +27,6 @@ public class BubbleFrame extends JFrame {
         player = new Player();               // 플레이어 인스턴스 생성
         add(player);                         // 플레이어를 패널에 붙인다.
 
-
-
     }
 
     /* 세팅값 초기화 메소드 */
@@ -49,15 +47,15 @@ public class BubbleFrame extends JFrame {
             public void keyPressed(KeyEvent e) {
                 // 방향키 오른쪽 눌렀을때
                 if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                    if(!player.isRight()) { // 초기값은 false, !(NOT)을 붙이니 true로 변경되면서 실행된다.
-                        player.right();
-                        
+                    // if 오른쪽 진행중이지 않고, 오른쪽 벽에 충돌하지 않고 있으면 실행
+                    if(!player.isRight() && !player.isRightwallCrash()) { // 초기값은 false, !(NOT)을 붙이니 true로 변경되면서 실행된다.
+                        player.right();                        
                     }
                 }
 
                 // 방향키 왼쪽 눌렀을때
                 if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-                    if(!player.isLeft()) { // 초기값은 false, !(NOT)을 붙이니 true로 변경되면서 실행된다.
+                    if(!player.isLeft() && !player.isLeftwallCrash()) { // 초기값은 false, !(NOT)을 붙이니 true로 변경되면서 실행된다.
                         player.left();
                         
                     }
