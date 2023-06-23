@@ -1,4 +1,4 @@
-package test.practice;
+package test.ex06;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
@@ -26,6 +26,8 @@ public class BubbleFrame extends JFrame {
         setContentPane(backgroundMap);       // 맵을 패널에 붙인다.
         player = new Player();               // 플레이어 인스턴스 생성
         add(player);                         // 플레이어를 패널에 붙인다.
+
+
 
     }
 

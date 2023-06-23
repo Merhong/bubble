@@ -1,4 +1,4 @@
-package test.practice;
+package test.ex06_2;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
@@ -22,10 +22,13 @@ public class BubbleFrame extends JFrame {
 
     /* 객체 인스턴스 초기화 메소드, new 되는것들*/
     private void InitObject() {
-        backgroundMap = new JLabel(new ImageIcon("image/backgroundMap.png"));   // 맵 인스턴스 생성
+        backgroundMap = new JLabel(new ImageIcon("image/backgroundMapService.png"));         // 맵 인스턴스 생성
         setContentPane(backgroundMap);       // 맵을 패널에 붙인다.
         player = new Player();               // 플레이어 인스턴스 생성
         add(player);                         // 플레이어를 패널에 붙인다.
+
+        // 백그라운드 서비스 호출
+        new Thread(new BackgroundPlayerService(player)).start();
 
     }
 
@@ -49,7 +52,6 @@ public class BubbleFrame extends JFrame {
                 if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
                     if(!player.isRight()) { // 초기값은 false, !(NOT)을 붙이니 true로 변경되면서 실행된다.
                         player.right();
-                        
                     }
                 }
 
