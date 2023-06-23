@@ -3,6 +3,11 @@ package test.ex06;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import lombok.Getter;
+import lombok.Setter;
+
+
+@Getter @Setter
 public class Player extends JLabel {
     //플레이어 좌표
     private int x;
@@ -142,80 +147,5 @@ public class Player extends JLabel {
             }
             down = false; // 점프가 끝나면 up을 하는게 아니니 false로 변경
         }).start();
-    }
-    
-
-
-    // Getter & Setter
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public boolean isLeft() {
-        return left;
-    }
-
-    public void setLeft(boolean left) {
-        this.left = left;
-    }
-
-    public boolean isRight() {
-        return right;
-    }
-
-    public void setRight(boolean right) {
-        this.right = right;
-    }
-
-    public boolean isUp() {
-        return up;
-    }
-
-    public void setUp(boolean up) {
-        this.up = up;
-    }
-
-    public boolean isDown() {
-        return down;
-    }
-
-    public void setDown(boolean down) {
-        this.down = down;
-    }
-
-    public int getSPEED() {
-        return SPEED;
-    }
-
-    public int getJUMPSPEED() {
-        return JUMPSPEED;
-    }
-
-    public ImageIcon getPlayerL() {
-        return playerL;
-    }
-
-    public void setPlayerL(ImageIcon playerL) {
-        this.playerL = playerL;
-    }
-
-    public ImageIcon getPlayerR() {
-        return playerR;
-    }
-
-    public void setPlayerR(ImageIcon playerR) {
-        this.playerR = playerR;
     }
 }
